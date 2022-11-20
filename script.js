@@ -192,11 +192,35 @@ decimalButton.addEventListener("click", function(){
 evalContainer.appendChild(decimalButton)
 
 
+let deleteButton = document.createElement('button');
+deleteButton.innerText = "delete"
+deleteButton.addEventListener('click', function(){
+    
+    
+
+    //123 + 43 -> get rid of 3 
+    if(b.length > 0){
+       b = b.slice(0, b.length-1);
+       screen.removeChild(screen.lastElementChild);
+    } else if(operand !== undefined){
+        screen.removeChild(screen.lastElementChild);
+        operand = undefined;
+    } else {
+        screen.removeChild(screen.lastElementChild);
+    }
+
+
+})
+evalContainer.appendChild(deleteButton);
+
+
 function removeAllChildNodes(parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
     }
 }
+
+
 
 
 
@@ -219,3 +243,5 @@ function divide(a, b){
 function operate(a, b, operand){
     return operand(a, b); 
 }
+
+
