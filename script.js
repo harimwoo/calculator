@@ -7,6 +7,7 @@ const evalContainer = document.getElementById("evalContainer");
 let a; 
 let b = '';
 let operand;
+let usedDecimal = false;
 
 
 const num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -38,22 +39,52 @@ num.forEach(i => {
 let addButton = document.createElement("button");
 addButton.innerText = "+";
 addButton.addEventListener("click",function(){
+
+    if(operand !== undefined){
+        let result = document.createElement('span')
+        result.textContent = (operate(a, b, operand));
+        removeAllChildNodes(screen);
+        screen.appendChild(result);
+        a = result.textContent;
+        operand = undefined;
+        b = '';
+        usedDecimal = false;
+
+    }
+
+
     let funcInput = document.createElement('span');
     funcInput.textContent = addButton.textContent;
     a = screen.textContent;
     operand = add;
     screen.appendChild(funcInput);
+    usedDecimal = false;
 } );
 funcContainer.appendChild(addButton);
 
 let subtractButton = document.createElement("button");
 subtractButton.innerText = "-";
 subtractButton.addEventListener("click",function(){
+
+    if(operand !== undefined){
+        let result = document.createElement('span')
+        result.textContent = (operate(a, b, operand));
+        removeAllChildNodes(screen);
+        screen.appendChild(result);
+        a = result.textContent;
+        operand = undefined;
+        b = '';
+        usedDecimal = false;
+
+    }
+
+
     let funcInput = document.createElement('span');
     funcInput.textContent = subtractButton.textContent;
     a = screen.textContent;
     operand = subtract;
     screen.appendChild(funcInput);
+    usedDecimal = false;
 } );
 funcContainer.appendChild(subtractButton);
 
@@ -61,22 +92,52 @@ funcContainer.appendChild(subtractButton);
 let multiplyButton = document.createElement("button");
 multiplyButton.innerText = "*";
 multiplyButton.addEventListener("click",function(){
+
+    if(operand !== undefined){
+        let result = document.createElement('span')
+        result.textContent = (operate(a, b, operand));
+        removeAllChildNodes(screen);
+        screen.appendChild(result);
+        a = result.textContent;
+        operand = undefined;
+        b = '';
+        usedDecimal = false;
+
+    }
+
+
     let funcInput = document.createElement('span');
     funcInput.textContent = multiplyButton.textContent;
     a = screen.textContent;
     operand = multiply;
     screen.appendChild(funcInput);
+    usedDecimal = false;
 } );
 funcContainer.appendChild(multiplyButton);
 
 let divideButton = document.createElement("button");
 divideButton.innerText = "/";
 divideButton.addEventListener("click",function(){
+
+    if(operand !== undefined){
+        let result = document.createElement('span')
+        result.textContent = (operate(a, b, operand));
+        removeAllChildNodes(screen);
+        screen.appendChild(result);
+        a = result.textContent;
+        operand = undefined;
+        b = '';
+        usedDecimal = false;
+
+    }
+
+
     let funcInput = document.createElement('span');
     funcInput.textContent = divideButton.textContent;
     a = screen.textContent;
     operand = divide;
     screen.appendChild(funcInput);
+    usedDecimal = false;
 } );
 funcContainer.appendChild(divideButton);
 
@@ -93,8 +154,9 @@ evalButton.addEventListener("click",function(){
     removeAllChildNodes(screen);
     screen.appendChild(result);
     a = result.textContent;
-    operand === undefined;
+    operand = undefined;
     b = '';
+    usedDecimal = false;
 } );
 evalContainer.appendChild(evalButton);
 
@@ -103,10 +165,31 @@ clearButton.innerText = "clear"
 clearButton.addEventListener("click",function(){
     removeAllChildNodes(screen);
     operand = undefined;
-    a = 0; 
+    a = null; 
     b = '';
+    usedDecimal = false;
 } );
 evalContainer.appendChild(clearButton);
+
+let decimalButton = document.createElement("button");
+decimalButton.innerText = ".";
+decimalButton.addEventListener("click", function(){
+
+    if(usedDecimal === false && operand === undefined){
+        let decimal = document.createElement('span');
+        decimal.textContent = decimalButton.innerText;
+        screen.appendChild(decimal);
+        usedDecimal = true;
+    } else if(usedDecimal === false && operand !== undefined){
+        let decimal = document.createElement('span');
+        decimal.textContent = decimalButton.innerText;
+        screen.appendChild(decimal);
+        b += decimal.textContent;
+        usedDecimal = true;
+    }
+    
+})
+evalContainer.appendChild(decimalButton)
 
 
 function removeAllChildNodes(parent) {
@@ -135,8 +218,4 @@ function divide(a, b){
 
 function operate(a, b, operand){
     return operand(a, b); 
-}
-
-function getDisplayValue(){
-    let displayValue = screen.textContent;
 }
