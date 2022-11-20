@@ -4,9 +4,9 @@ const screen = document.getElementById("screen");
 const buttonsContainer = document.getElementById("buttonsContainer");
 const funcContainer = document.getElementById("funcContainer");
 const evalContainer = document.getElementById("evalContainer");
-var a; 
-var b = '';
-var operand;
+let a; 
+let b = '';
+let operand;
 
 
 const num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -102,9 +102,9 @@ let clearButton = document.createElement("button");
 clearButton.innerText = "clear"
 clearButton.addEventListener("click",function(){
     removeAllChildNodes(screen);
-    a = 0;
+    operand = undefined;
+    a = 0; 
     b = '';
-    operand === undefined;
 } );
 evalContainer.appendChild(clearButton);
 
