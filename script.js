@@ -4,10 +4,14 @@ const screen = document.getElementById("screen");
 const buttonsContainer = document.getElementById("buttonsContainer");
 const funcContainer = document.getElementById("funcContainer");
 const evalContainer = document.getElementById("evalContainer");
+
+
 let a; 
 let b = '';
 let operand;
 let usedDecimal = false;
+
+
 
 
 const num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -245,3 +249,6 @@ function operate(a, b, operand){
 }
 
 
+
+
+  

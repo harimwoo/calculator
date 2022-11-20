@@ -2,22 +2,40 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.screen {
-    width: 500px;
+    justify-content: space-around;
+    width: 750px;
+    height: 900px;
     border-style: solid;
-   
-    display: flex;
+    background-color: #63bda4;
+    border-radius: 11px;
 }
 
-.buttons {
-    width: 200px;
+
+
+#screen {
+    width: 530px;
+    height: 400px;
     border-style: solid;
+    background-color: #d9ffea;
     display: flex;
-    flex-direction: column;
+    border-radius: 25px;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
 }
 
-.row {
-    flex: 1;
+#buttonsContainer {
+    height: 100px;
+    border-style: solid;
+    border-width: 10px;
+    height:15px;
+    margin-right: 400px;
+    margin-bottom: 30px; 
+    background-color: black;
+    border-radius: 8px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 3px;
 }
+
